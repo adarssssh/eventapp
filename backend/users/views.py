@@ -1,5 +1,4 @@
 
-# Create your views here.
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -44,7 +43,9 @@ class AuthViewSet(viewsets.GenericViewSet):
     @action(detail=False, methods=['POST'])
 
     def register_general_user(self, request):
+        print(request.data)
         serializer = UserRegistrationSerializer(data=request.data)
+        
         if serializer.is_valid():
             user = serializer.save()
             

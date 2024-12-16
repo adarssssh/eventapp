@@ -128,7 +128,12 @@ class LoginSerializer(serializers.Serializer):
         # Try to authenticate with different identifiers
         user = None
         if '@' in login_identifier:
-            user = authenticate(username=login_identifier, password=password)
+            try:
+                user_obj = User.objects.get(email=login_identifier)
+                user = authenticate(username=user_obj.username, password=password)
+                
+            except User.DoesNotExist:
+                raise serializers.ValidationError("No user with this email found.")
         else:
             try:
                 # Try to find user by phone or username

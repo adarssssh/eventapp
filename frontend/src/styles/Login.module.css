@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between the divs */
+    /* gap: 10px; Add spacing if needed */
+    /* position: relative;
+    align-content: center;
+    border-radius: 16px;
+    max-width: 50%;
+    display: flex; */
+    justify-content: space-between; /* Space between the two boxes */
+    align-items: center; /* Aligns items vertically inside the container */
+    position: relative;
+    border-radius: 16px;
+    max-width: 50%;
+    height: auto; /* Adjust based on your box size */
+    padding: 20px; /* Optional padding inside the container */
+    margin: 150px auto; /* Centers the container horizontally */
+    background-color: #f0f0f0;
+    }
+
+
+.logindiv{
+    background-color: #FF370A;
+    
+    
+    flex: 1; /* Makes both boxes equal width */
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    /* border: 1px solid #ccc; */
+
+
+}
+
+.loginmain{
+    background-color: #FDEFD8;
+    flex: 1; /* Makes both boxes equal width */
+    padding: 20px;
+    text-align: center;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    /* border: 1px solid #ccc; */
+}
+
+
+.box {
+    flex: 1; /* Makes both boxes equal width */
+    padding: 20px;
+    background-color: lightblue;
+    text-align: center;
+    border: 1px solid #ccc;
+  }

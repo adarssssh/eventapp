@@ -1,0 +1,26 @@
+.homepage {
+    background-color: rgb(255, 255, 255)
+    
+}
+
+.nav{
+    background-color: rgb(249, 241, 21);
+}
+
+.footer{
+    background-color: #fc2f00;
+}
+
+.logo{
+    background-color: #ffffff;
+}
+
+.navbar_logo {
+    max-width: 170px; /* Adjust width */
+    height: auto;
+    margin: auto 16px; /* Maintain aspect ratio */
+  }
+
+.hero{
+    background-color: #F4A62A;
+}

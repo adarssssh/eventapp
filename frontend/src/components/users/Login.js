@@ -37,15 +37,17 @@ function Login() {
     }
   };
   return  (
-    <div className={styles.container}>
+
+    
+    <div className={styles.container} >
     <div class = {styles.logindiv} >
       Welcome to HappenDo
       </div>
-      <div class = {styles.loginmain}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
+      <div class = {styles.loginmain} >
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit} >
+        <div class= {styles.input} >
+          <label>Username</label >
           <input
             type="text"
             value={loginIdentifier}
@@ -53,8 +55,8 @@ function Login() {
             required
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div class= {styles.input}>
+          <label>Password</label>
           <input
             type="password"
             value={password}
@@ -62,7 +64,7 @@ function Login() {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Login </button>
       </form>
       {message && <p>{message}</p>}
       {error && <p>{error}</p>}

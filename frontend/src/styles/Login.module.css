@@ -1,31 +1,27 @@
 body{
     margin: 0;
     background-color: #ffffff;
+    min-height: 700px;
+    
 }
 
 .container {
     display: flex;
     justify-content: space-between; /* Adjust spacing between the divs */
-    /* gap: 10px; Add spacing if needed */
-    /* position: relative;
-    align-content: center;
-    border-radius: 16px;
-    max-width: 50%;
-    display: flex; */
+    
     justify-content: space-between; /* Space between the two boxes */
     align-items: center; /* Aligns items vertically inside the container */
     position: relative;
     border-radius: 16px;
-    max-width: 50%;
-    height: auto; /* Adjust based on your box size */
+    min-height: 500px; /* Adjust based on your box size */
     padding: 20px; /* Optional padding inside the container */
     margin: 150px auto; /* Centers the container horizontally */
-    background-color: #f0f0f0;
+    background-color: #F4A62A;
     }
 
 
 .logindiv{
-    background-color: #FF370A;
+    background-color: #ff370a;
     
     
     flex: 1; /* Makes both boxes equal width */
@@ -33,26 +29,112 @@ body{
     text-align: center;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
+    min-height: 100%;
+    font: 4em sans-serif;
     /* border: 1px solid #ccc; */
 
 
 }
 
 .loginmain{
-    background-color: #FDEFD8;
+    background-color: #f9f9f9;
     flex: 1; /* Makes both boxes equal width */
+    border-radius: 16px;
     padding: 20px;
     text-align: center;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
+    height: 50%;
     /* border: 1px solid #ccc; */
+    font: 1em sans-serif;
+    min-height: 100%;
+    min-width: 50%;
+    
 }
 
+.input{
+    flex: 1; /* Makes both boxes equal width */
+    padding: 20px;
+    text-align: center;
+    border-top-right-radius: 16px;
+    font: 1em sans-serif;
 
+}
+.input input {
+    padding: 3px;
+    /* box-shadow: 3px 3px 5px grey; */
+    border-radius: 16px;
+    min-height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 300px;
+    font: 2em sans-serif;
+  }
+
+.input label {
+    color: #000000;
+    font-weight: bold;
+    width: 130px;
+    float: left;
+    font: 2em sans-serif;
+  
+  }
+  label:after { content: ": " }
+
+form button {
+  align-items: center;
+  background-clip: padding-box;
+  /* background-color: #fa6400; */
+  background-color:#F4A62A ;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+
+  }
+
+
+
+  form button:hover,
+  .button5:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+  
+  form button:hover {
+    transform: translateY(-1px);
+  }
+  
+  form button:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
 .box {
     flex: 1; /* Makes both boxes equal width */
     padding: 20px;
-    background-color: lightblue;
+    background-color: rgb(147, 184, 196);
     text-align: center;
     border: 1px solid #ccc;
+    
   }

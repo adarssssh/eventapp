@@ -3,21 +3,98 @@
     
 }
 
-.nav{
-    background-color: rgb(249, 241, 21);
+.header{
+    background-color: rgb(236, 229, 26);
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: #fff;
+    padding: 1rem;
+    
+  }
+
+    /* background-color: #fc2f00; */
+.links .navlinks {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    }
+
+.links .navlinks li {
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    color: #F4A62A;
+}
+
+.links .navlinks li a {
+    color: #F4A62A;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+
+.button5 {
+  align-items: center;
+  background-clip: padding-box;
+  /* background-color: #fa6400; */
+  background-color:#F4A62A ;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button5:hover,
+.button5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button5:hover {
+  transform: translateY(-1px);
+}
+
+.button5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
 
 .footer{
     background-color: #fc2f00;
 }
 
-.logo{
-    background-color: #ffffff;
-}
+
 
 .navbar_logo {
     max-width: 170px; /* Adjust width */
-    height: auto;
+    max-height: 50px;
     margin: auto 16px; /* Maintain aspect ratio */
   }
 

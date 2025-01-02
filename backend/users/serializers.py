@@ -41,6 +41,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             validated_data['username'] = validated_data.get('email') or validated_data.get('phone')
         
         user = User.objects.create_user(**validated_data)
+        
         return user
 
 

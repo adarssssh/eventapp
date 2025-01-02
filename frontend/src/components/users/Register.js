@@ -3,14 +3,14 @@ import axios from 'axios'
 
 function Register() {
 
-    const [phonenumber, setphonenumber] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirm_password, setConfirmPassword] = useState('')
     const [usertype, setUsertype] = useState('general')
     const [submit, setSubmit] = useState()
 
 
-    const handlePhoneNumberChange = (event) => setphonenumber(event.target.value)
+    const handleUsernameChange = (event) => setUsername(event.target.value)
     const handlePasswordChange = (event) => setPassword(event.target.value)
     const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value)
     const handleUserTypeChange = (event) => setUsertype(event.target.value)
@@ -22,7 +22,7 @@ function Register() {
     
         try{
             const response = await axios.post('users/auth/register_general_user/',{
-                username: phonenumber,
+                username: username,
                 password: password,
                 confirm_password: confirm_password,
                 user_type: usertype,
@@ -44,8 +44,8 @@ function Register() {
                     <label>Phone no.</label>
                     <input
                     type = "text" 
-                    value = {phonenumber}
-                    onChange={handlePhoneNumberChange}
+                    value = {username}
+                    onChange={handleUsernameChange}
                     required/>
                 </div>
                 <div>

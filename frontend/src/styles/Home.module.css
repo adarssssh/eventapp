@@ -1,10 +1,15 @@
 .homepage {
-    background-color: rgb(255, 255, 255)
+    background-color: rgb(255, 255, 255);
+    font-family: 'SF Pro Display',-apple-system,BlinkMacSystemFont,sans-serif !important;   ;
     
 }
 
 .nav{
-    background-color: rgb(249, 241, 21);
+    background-color: #f9f115;
+    position: relative;
+    margin: 0 auto;
+    height: 80px;
+    top: 0px;
 }
 
 .footer{
@@ -13,6 +18,7 @@
 
 .logo{
     background-color: #ffffff;
+    
 }
 
 .navbar_logo {
@@ -22,5 +28,32 @@
   }
 
 .hero{
-    background-color: #F4A62A;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    align-items: center;
+    background-color: #fde830;
+}
+
+.serviceDiv{
+    position: sticky;
+    top: 0px;
+    margin: 15px;
+    padding: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: #fde830 solid;
+    margin-bottom: 0;
+    margin-top: 0;  
+}
+
+.serviceDiv:hover{
+    border-bottom: #ffffff solid;
+    font-size: 16px;
+    color:#f73838;
+    background-color: #f9e84b;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }

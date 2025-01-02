@@ -43,7 +43,7 @@ class AuthViewSet(viewsets.GenericViewSet):
     @action(detail=False, methods=['POST'])
 
     def register_general_user(self, request):
-        print(request.data)
+        
         serializer = UserRegistrationSerializer(data=request.data)
         
         if serializer.is_valid():

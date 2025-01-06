@@ -35,6 +35,7 @@ const ListVenue = () => {
         setLoading(true);
         const response = await fetch(VENUE_URL)
         const data = await response.json()
+        console.log(data)
         setVenue(data.data)
         cache.current[cacheKey] = data.data;
         setLoading(false);

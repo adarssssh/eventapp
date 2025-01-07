@@ -2,6 +2,11 @@ from django.http import HttpResponse,HttpRequest
 from django.shortcuts import render
 from .models import ElegantDecor,CoverImage,CityPolygon
 import requests
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+
+from .serializers import DecorSerializer,DecorImageSerializer,CityPolygonSerializer
 # Create your views here.
 
 
@@ -55,6 +60,10 @@ def fetch_data(request):
 
 
 def store_elegant_decor_data(json_data):
+
+
+
+
 
     for i in range (len(json_data.get('data', []))):
         data = json_data['data'][i]
@@ -112,3 +121,27 @@ def store_elegant_decor_data(json_data):
                 city_name=city_polygon.get('cityName', 'Not Available'),
                 is_base_city=city_polygon.get('isBaseCity', 'Not Available')
             )
+
+
+class DecordetailView(APIView):
+    def get(self, request, vendor_id):
+        try:
+            decors = ElegantDecor.objects.get(vendor_id=vendor_id)
+            serializer = DecorSerializer(decors)
+            return Response(serializer.data)
+        except ElegantDecor.DoesNotExist:
+            return Response({'error': 'Decor not found'}, status = 404)
+
+class CityDecorSearchView(APIView):
+    def get(self, request, city_name):
+        
+        vendors = ElegantDecor.objects.filter(city__iexact=city_name)
+
+        # Implement pagination
+        paginator = PageNumberPagination()
+        paginator.page_size = 20  # Set the number of records per page
+        paginated_vendors = paginator.paginate_queryset(vendors, request)
+
+        # Serialize the paginated data
+        serializer = DecorSerializer(paginated_vendors, many=True)
+        return paginator.get_paginated_response(serializer.data)

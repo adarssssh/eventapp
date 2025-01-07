@@ -9,7 +9,7 @@ import DecoratorContainer from "./DecoratorContainer"
     
 const Decorators = () =>{
     
-    const [venue, setVenue] = useState([])
+    const [decor, setDecor] = useState([])
     const [city,setCity] = useState("jaipur")
     const [search,setSearch] = useState("")
     const [page, setPage] = useState(1)
@@ -19,21 +19,23 @@ const Decorators = () =>{
     const cache = useRef({}); // Ref to store cached data
 
     const Decor_URL = `https://www.wedmegood.com/node/v1/vendor/list?category_slug=wedding-decorators&city_slug=${city}&filter_option=&offset=0&device_type=1&page=${page}`
+    const URL = `http://127.0.0.1:8000/decor/decors/${city}/?page=${page}`
 
      
 
     async function Call() {
         const cacheKey = `${city}-page${page}`
         if (cache.current[cacheKey]) {
-            setVenue(cache.current[cacheKey]); // Use cached data
+            setDecor(cache.current[cacheKey]); // Use cached data
             setLoading(false);
             return;
         }
         setLoading(true);
-        const response = await fetch(Decor_URL)
+        const response = await fetch(URL)
         const data = await response.json()
-        setVenue(data.data)
-        cache.current[cacheKey] = data.data;
+        console.log(data.results)
+        setDecor(data.results)
+        cache.current[cacheKey] = data.results;
         setLoading(false);
     }
 
@@ -41,6 +43,7 @@ const Decorators = () =>{
         const value = search.trim().toLowerCase()
         if (value && city !== value) {
             setCity(value);
+            setPage(1)
         }
     }
     const handleEnter =(event) =>{
@@ -57,7 +60,7 @@ const Decorators = () =>{
     },[city,page])
 
     
-    console.log(venue)
+    console.log(decor)
     
     return (
         <div className="maindivVenue">
@@ -85,12 +88,12 @@ const Decorators = () =>{
                 {loading ? (<ShimmerUI />):
                     
                     (
-                        Array.isArray(venue) && venue.length > 0 ? (
-                            venue.map((data, index) => (
+                        Array.isArray(decor) && decor.length > 0 ? (
+                            decor.map((data, index) => (
                                 <DecoratorContainer key={index} data={data} />
                             ))
                         ) : (
-                            <p>No venues found!</p>
+                            <p>No Decors found!</p>
                         )
                     )
                 }

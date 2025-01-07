@@ -5,7 +5,7 @@
 }
 
 .nav{
-    background-color: #f9f115;
+    background-color: #fdb530;
     position: relative;
     margin: 0 auto;
     height: 80px;
@@ -33,7 +33,7 @@
     justify-content: center;
     
     align-items: center;
-    background-color: #fde830;
+    background-color: #fdb530;
 }
 
 .serviceDiv{
@@ -44,7 +44,7 @@
     padding-bottom: 15px;
     font-size: 16px;
     cursor: pointer;
-    border-bottom: #fde830 solid;
+    border-bottom: #fdb530 solid;
     margin-bottom: 0;
     margin-top: 0;  
 }
@@ -52,8 +52,8 @@
 .serviceDiv:hover{
     border-bottom: #ffffff solid;
     font-size: 16px;
-    color:#f73838;
-    background-color: #f9e84b;
+    color:#ffffff;
+    background-color: #fdc330;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }

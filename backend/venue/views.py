@@ -1,22 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
-
 from django.core.exceptions import ObjectDoesNotExist
 import requests
 from .models import Vendor, VenueImage, VenueCategory, CityPolygon, Tooltip, FAQ, VenueType, GuestCount, BadgeIcon, VenuePricing
-
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+from .serializers import VendorSerializer
 
 
 
 def fetch_data(request):
-    cities = [
-    'Himachal-Pradesh', 'Maharashtra', 'Haryana', 'Uttar-Pradesh', 'Uttarakhand', 
-    'Punjab', 'Manipur', 'Arunachal-Pradesh', 'Dubai', 'Thailand', 'Bali', 
-    'Abu Dhabi'
-    ]
+    cities = ["Gurgaon","Udaipur","Agra","Kanpur","Kochi","Jaisalmer"]
 
 
     j = 0
@@ -54,102 +49,8 @@ def fetch_data(request):
 
     return HttpResponse(data['data'])
 
-# def save_vendor_data(data):
-    try:
-        # Check if the vendor already exists in the database
-        vendor, created = Vendor.objects.update_or_create(
-            vendor_id=data["id"],  # Assuming the vendor_id is unique
-            defaults={
-                'name': data["name"],
-                'membership_id': data["membership_id"],
-                'city': data["city"],
-                'locality': data["locality"],
-                'information': data["information"],
-                'vendor_rating': data["vendor_rating"],
-                'reviews_count': data["reviews_count"],
-                'vendor_price': data["vendor_price"],
-                'vendor_price_subtext': data["vendor_price_subtext"],
-                'vendor_verification_status': data["vendor_verification_status"],
-                'vaccination_status': data["vaccination_status"],
-                'secret_deal_available': data["secret_deal_available"],
-                'profile_pic_url': data["profile_pic_url"],
-                'is_mynt': data["is_mynt"],
-                'starting_price': data["starting_price"],
-                'show_badge_icon': data["show_badge_icon"]
-            }
-        )
 
-        # Save venue images
-        for image_url in data["cover_images"]:
-            VenueImage.objects.update_or_create(vendor=vendor, image_url=image_url)
-
-        # Save venue categories
-        for category in data["venue_type"]:
-            VenueCategory.objects.update_or_create(vendor=vendor, category_name=category)
-
-        # Save city polygon data
-        CityPolygon.objects.update_or_create(
-            vendor=vendor,
-            defaults={
-                'pinned_to_bottom': data["city_polygon"]["pinnedToBottom"],
-                'review_score': data["city_polygon"]["reviewScore"],
-                'freshness_score': data["city_polygon"]["freshnessScore"],
-                'image_score': data["city_polygon"]["imageScore"],
-                'lrr_score': data["city_polygon"]["lrrScore"],
-                'score': data["city_polygon"]["score"],
-                'city_slug': data["city_polygon"]["citySlug"],
-                'city_name': data["city_polygon"]["cityName"],
-                'is_base_city': data["city_polygon"]["isBaseCity"]
-            }
-        )
-
-        # Save tooltips
-        for tooltip in data["tooltip"]:
-            Tooltip.objects.update_or_create(vendor=vendor, heading=tooltip["tooltip_heading"], description=tooltip["tooltip_heading_answer"])
-
-        # Save FAQ data
-        for faq in data["faq_texts_on_vendor_card"]:
-            FAQ.objects.update_or_create(
-                vendor=vendor,
-                question=faq["filter_question"],
-                answer=faq["answerValue"],
-                faq_order=faq["faq_order_on_vc"]
-            )
-
-        # Save venue types
-        for venue_type in data["venue_type"]:
-            VenueType.objects.update_or_create(vendor=vendor, venue_type=venue_type)
-
-        # Save guest count
-        for guest_count in data["num_guest_count"]:
-            GuestCount.objects.update_or_create(
-                vendor=vendor,
-                min_value=guest_count["min_value"],
-                max_value=guest_count["max_value"]
-            )
-
-        # Save badge icons
-        BadgeIcon.objects.update_or_create(
-            vendor=vendor,
-            web_icon=data["badge_icon"]["web"],
-            android_hdmi=data["badge_icon"]["android"]["hdmi"],
-            android_mdpi=data["badge_icon"]["android"]["mdpi"],
-            ios_1x=data["badge_icon"]["ios"]["1x"],
-            ios_2x=data["badge_icon"]["ios"]["2x"],
-            is_new_badge=data["badge_icon"]["is_new_badge"]
-        )
-
-        # Save pricing information
-        VenuePricing.objects.update_or_create(
-            vendor=vendor,
-            destination_price_prefix=data["destination_price_prefix"],
-            destination_price=data["destination_price"],
-            destination_price_unit=data["destination_price_unit"],
-            vendor_currency=data["vendor_currency"]
-        )
-
-    except Exception as e:
-        print(f"Error while saving data: {e}")
+    
 
 def save_vendor_data(json_data):
     
@@ -258,3 +159,30 @@ def save_vendor_data(json_data):
 
         except Exception as e:
             print(f"Error while saving data: {e}")
+
+
+
+
+class VendorDetailView(APIView):
+    def get(self, request, vendor_id):
+        try:
+            vendor = Vendor.objects.get(vendor_id=vendor_id)
+            serializer = VendorSerializer(vendor)
+            return Response(serializer.data)
+        except Vendor.DoesNotExist:
+            return Response({"error": "Vendor not found"}, status=404)
+
+
+class CityVendorSearchView(APIView):
+    def get(self, request, city_name):
+        
+        vendors = Vendor.objects.filter(city__iexact=city_name)
+
+        # Implement pagination
+        paginator = PageNumberPagination()
+        paginator.page_size = 20  # Set the number of records per page
+        paginated_vendors = paginator.paginate_queryset(vendors, request)
+
+        # Serialize the paginated data
+        serializer = VendorSerializer(paginated_vendors, many=True)
+        return paginator.get_paginated_response(serializer.data)

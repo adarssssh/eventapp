@@ -24,7 +24,7 @@ const ListVenue = () => {
     const cache = useRef({}); // Ref to store cached data
 
     const VENUE_URL = `https://www.wedmegood.com/node/v1/vendor/list?category_slug=wedding-venues&city_slug=${city}&filter_option=&offset=0&device_type=1&page=${page}`
-
+    const URL = `http://127.0.0.1:8000/venue/vendors/${city}/?page=${page}`
     async function Call() {
         const cacheKey = `${city}-page${page}`
         if (cache.current[cacheKey]) {
@@ -33,11 +33,11 @@ const ListVenue = () => {
             return;
         }
         setLoading(true);
-        const response = await fetch(VENUE_URL)
+        const response = await fetch(URL)
         const data = await response.json()
         console.log(data)
-        setVenue(data.data)
-        cache.current[cacheKey] = data.data;
+        setVenue(data.results)
+        cache.current[cacheKey] = data.results;
         setLoading(false);
     }
 

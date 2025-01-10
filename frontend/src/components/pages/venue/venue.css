@@ -1,0 +1,299 @@
+.maindivVenue{
+    font-family: 'Poppins',sans-serif !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #edeef1;
+    z-index: 0;
+}
+
+.navGeneral{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-family: 'Poppins',sans-serif !important;
+    background-color: #ffffff;
+    height: 80px;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+}
+.serviceContainer {
+    display: flex; /* Enables flexbox layout */
+    flex-wrap: nowrap; /* Prevents wrapping; all divs will be in a single row */
+    background-color: #ffffff;
+    margin-left: 0px;
+    justify-content: space-between; /* Distributes the divs with space between */
+    align-items: center; /* Centers the divs vertically within the container */
+    padding: 10px;
+    gap: 20px;
+    position: sticky; /* Makes the container sticky */
+    top: var(--nav-height); /* Positions it below the navbar */
+    z-index: 10; /* Ensures it stays above other content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.serviceDiv {
+    flex: 1; /* Allows each div to take equal space */
+    min-width: 150px; /* Prevents divs from getting too small */
+    max-width: 200px; /* Optional: limits the maximum width of the divs */
+    padding: 5px;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    text-align: center; /* Centers the content inside the div */
+    position: sticky;
+    top: 0; /* Keeps the individual serviceDivs from moving above the navbar */
+    z-index: 5;
+    color: var(--color-primary); /* Keeps the serviceDiv below the container */
+}
+
+.serviceDiv:hover {
+    border-bottom: 2px solid var(--color-dark);
+    color: var(--color-dark);
+    background-color: lighten(var(--color-primary), 5%);
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+
+
+
+.div-srch {
+    display: flex;
+    background-color: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+    position: sticky; /* Makes the search div sticky */
+    top: calc(var(--nav-height) + 60px); /* Ensures it sticks below the serviceContainer */
+    z-index: 9; /* Ensures it's above other content but below the serviceContainer */
+    padding: 15px 0; /* Adds some padding */
+    width: 100%; /* Ensures it spans across the full width */
+}
+
+.div-srch .div-service {
+    display: flex;
+    background-color: rgba(149, 255, 0, 0);
+    margin-right: 30px;
+    justify-content: left;
+}
+
+.div-srch button {
+    background-color: var(--color-btn);
+    min-width: 100px;
+    font-weight: 500;
+    font-size: 1em;
+    border: black;
+    border-radius: 22px;
+    padding: 10px;
+    color: var(--color-white);
+    margin: 15px;
+    cursor: pointer;
+}
+
+.div-srch button:hover {
+    background-color: var(--color-btn-hover);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.div-srch button:active {
+    transform: scale(.97);
+}
+
+.div-srch input {
+    font-family: inherit;
+    width: 25%;
+    border: 0;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgb(253, 253, 253);
+    padding: 7px 0;
+    
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.div-srch input::placeholder {
+    color: rgb(253, 253, 253);
+}
+
+
+
+
+.Listcontainer{
+    display: flex;
+    background-color: #ebebeb;
+    align-items: center;
+    justify-content: center;
+    top: calc(var(--nav-height) + 100px);
+    margin-top: 60px;
+    width: 100%;   
+}
+
+.styles_containerV2__1_U51{
+    contain-intrinsic-size: 250px;
+    box-shadow: 0 4px 29px #e0e1e0;
+    background: none;
+    z-index: 1;
+}
+
+
+
+
+.Venuecontainer{
+    display: flex;
+    width: 80%;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow-y: visible;
+    
+    background-color: rgba(255, 193, 146, 0);
+}
+
+.Venuecards{
+    display: flex;
+    padding: 15px;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    border-bottom-right-radius: 36px;
+    width: 100%;
+}
+
+.Venuecards:hover{
+    cursor: pointer;
+    
+}
+
+.vc-img img{
+    border-radius: 16px;
+    margin: 10px;
+}
+
+
+.vc-venue-details{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    
+    height: 85%;
+}
+.vc-venue-name{
+    display: flex;
+    font-size: 2em;
+    align-items: start;
+    justify-content: start;
+    /* background-color: rgb(255, 255, 255); */
+}
+
+
+.vc-venue-details button{
+    background-color: #fde830;
+    min-width: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font:  1em sans-serif;
+    border: black ;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.vc-venue-details button:hover {
+    background-color: #f9ef93;
+    box-shadow: 0px 0px 20px -18px;
+  }
+
+.vc-venue-details button:active {
+    transform: scale(.97);
+  }
+
+
+
+  /* Shimmer UI CSS for Venue List */
+
+  .Venuecontainer-Shimmer{
+    display: flex;
+    width: 80%;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow-y: visible;
+    /* flex-direction: column; */
+    background-color: rgba(255, 193, 146, 0);
+}
+
+.Venuecards-Shimmer{
+    display: flex;
+    padding: 15px;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    border-bottom-right-radius: 36px;
+    width: 100%;
+    height: 195px;
+}
+
+.vc-img-Shimmer{
+    border-radius: 16px;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 1s infinite linear;
+}
+@keyframes shimmer {
+    to {
+       background-position-x: 0%
+    }
+ }
+
+
+.vc-venue-details-Shimmer{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    
+    height: 85%;
+}
+
+.vc-venue-name-big-Shimmer{
+    background-color: lightgray;
+    width: 240px;
+    display: flex;
+    margin: 15px;
+    height: 30px;
+    align-items: start;
+    justify-content: start;
+    background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 1s infinite linear;
+    /* background-color: rgb(255, 255, 255); */
+}
+.vc-venue-name-Shimmer{
+    background-color: lightgray;
+    width: 140px;
+    display: flex;
+    margin: 15px;
+    height: 20px;
+    align-items: start;
+    justify-content: start;
+    background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 1s infinite linear;
+    /* background-color: rgb(255, 255, 255); */
+}

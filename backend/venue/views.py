@@ -177,7 +177,7 @@ class CityVendorSearchView(APIView):
     def get(self, request, city_name):
         
         vendors = Vendor.objects.filter(city__iexact=city_name)
-
+    
         # Implement pagination
         paginator = PageNumberPagination()
         paginator.page_size = 20  # Set the number of records per page

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../venue/venue.css'
+import styles from '../../../styles/venue.css'
 
 const DecoratorContainer= (data) => {
     let img = data.data.profile_pic_url

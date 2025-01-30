@@ -1,55 +1,162 @@
+:root {
+    /* Define reusable CSS variables */
+    --color-primary: #ffaa00;
+    --color-primary-light:#ffa391df;
+    --color-secondary: #fc2f00;
+    --color-tertiary:#FFE100;
+    --color-tertiary-light:#fff080;
+    --color-white: #ffffff;
+    --color-dark: #161515;
+    --color-btn: #1E90FF;
+    --color-btn-hover: #5dbaf4;
+    --font-family-main: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --nav-height: 80px;
+  }
 
 
 .container {
     display: flex;
-    justify-content: space-between; /* Adjust spacing between the divs */
-    /* gap: 10px; Add spacing if needed */
-    /* position: relative;
-    align-content: center;
-    border-radius: 16px;
-    max-width: 50%;
-    display: flex; */
-    justify-content: space-between; /* Space between the two boxes */
-    align-items: center; /* Aligns items vertically inside the container */
-    position: relative;
-    border-radius: 16px;
-    max-width: 50%;
-    height: auto; /* Adjust based on your box size */
-    padding: 20px; /* Optional padding inside the container */
-    margin: 150px auto; /* Centers the container horizontally */
-    background-color: #f0f0f0;
-    }
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(
+        circle  at 10% 20%,
+        rgba(245, 227, 168, 0.5) 10%,  /* Light yellow shade */
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 90% 95%,
+        rgba(245, 227, 168, 0.5) 10%, /* Light blue shade */
+        transparent 30%
+      );
+    padding: 20px;
+  }
+  
+  
+  
+  .loginmain {
+    background: #4f2d0a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .loginmain h2 {
+    color: #f9f8f8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .loginmain form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .loginmain form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .loginmain label {
+    color: #f1e5e5;
+    font-weight: 500;
+  }
+  
+  .loginmain input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .loginmain input:focus {
+    outline: none;
+    border-color: var(--color-white);
+    box-shadow: 0 0 0 2px rgba(240, 237, 228, 0.705);
+  }
+  
+  .loginmain button,
+  .social-button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .loginmain button[type="submit"] {
+    background-color: var(--color-btn);
+    color: white;
+  }
+  
+  .loginmain button[type="submit"]:hover {
+    background-color: var(--color-btn-hover);
+  }
+  
+  .loginmain button:last-of-type,
+  .social-button {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .loginmain button:last-of-type:hover,
+  .social-button:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .socials {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .socials p {
+    color: #f4efef;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .socialButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+  
+  .socialButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: 1px solid #f9f5f5;
+  }
+  
+  .socialButton img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .socialButton span {
+    color: #252424;
+    font-weight: 500;
+  }
 
 
-.logindiv{
-    background-color: #FF370A;
+
+  .navbar_logo {
+    max-width: 250px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
     
-    
-    flex: 1; /* Makes both boxes equal width */
-    padding: 20px;
-    text-align: center;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-    /* border: 1px solid #ccc; */
-
-
-}
-
-.loginmain{
-    background-color: #FDEFD8;
-    flex: 1; /* Makes both boxes equal width */
-    padding: 20px;
-    text-align: center;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    /* border: 1px solid #ccc; */
-}
-
-
-.box {
-    flex: 1; /* Makes both boxes equal width */
-    padding: 20px;
-    background-color: lightblue;
-    text-align: center;
-    border: 1px solid #ccc;
   }

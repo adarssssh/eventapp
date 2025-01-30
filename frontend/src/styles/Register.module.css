@@ -1,0 +1,130 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(
+        circle  at 10% 20%,
+        rgba(245, 227, 168, 0.5) 10%,  /* Light yellow shade */
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 90% 95%,
+        rgba(245, 227, 168, 0.5) 10%, /* Light blue shade */
+        transparent 30%
+      );
+    padding: 20px;
+  }
+
+  
+  
+  .register {
+    background: #4f2d0a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .register h2 {
+    color: #f8f3f3;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  
+  .register form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .register form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .register label {
+    color: #f5f4f4;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .register input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .register input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  /* Style for the user type input */
+  .register input[type="choice"] {
+    /* Assuming you might want to change this to a select element later */
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .register button[type="submit"] {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register button[type="submit"]:hover {
+    background-color: #357abd;
+  }
+  
+  /* For error messages */
+  .register .error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* For success messages */
+  .register .success {
+    color: #28a745;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .register {
+      padding: 1.2rem;
+    }
+    
+    .register h2 {
+      font-size: 1.75rem;
+    }
+    
+    .register input,
+    .register button {
+      padding: 0.7rem;
+    }
+  }
+
+
+  .navbar_logo {
+    max-width: 250px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    
+  }

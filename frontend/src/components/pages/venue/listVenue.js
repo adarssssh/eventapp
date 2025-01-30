@@ -1,12 +1,9 @@
 
 import React ,{useState, useEffect, useRef} from "react"
-import styles from './venue.css'
+import styles from '../../../styles/venue.css'
 import VenueContainer from "./VenueContainer"
-import { data } from "react-router-dom"
-import Homepage from "../landing/Homepage"
 import ShimmerUI from "./ShimmerUI"
 import Services from "./Services"
-import NavCompo from "../../Navbar/Nav"
 import NavGeneral from "../../Navbar/NavGeneral"
 import Footer from "../landing/Footer"
 
@@ -67,7 +64,7 @@ const ListVenue = () => {
     },[city,page])
 
     
-    console.log(venue)
+    
     
     return (
         <>

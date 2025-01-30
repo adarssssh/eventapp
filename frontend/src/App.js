@@ -7,6 +7,7 @@ import ListVenue from './components/pages/venue/listVenue';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Decorators from './components/pages/decorators/Decorators';
 import VendorDetails from './components/pages/venue/VendorDetails';
+import Home from './components/pages/Home/Home';
 
 
 
@@ -20,6 +21,7 @@ function App() {
 
         <Route path= '/' element= {<Homepage/>} />
         <Route path= '/about' element= {<Homepage/>} />
+        <Route path= '/home' element= {<Home/>} />
         <Route path= '/contact' element= {<Homepage/>} />
         <Route path= '/login' element= {<Login />} />
         <Route path= '/register' element= {<Register />} />

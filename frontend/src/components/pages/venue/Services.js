@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './venue.css';
+import styles from '../../../styles/venue.css'
 import {useNavigate} from 'react-router-dom' ;
 
 function Services() {
@@ -21,7 +21,7 @@ function Services() {
           <div className="serviceDiv">Food Serivces</div>
           <div className="serviceDiv" onMouseOver={() =>{
             console.log("Mouse")
-          }}>Photography & Video</div>
+          }}>Photography</div>
           <div className="serviceDiv" >Artists</div>
           <div className="serviceDiv" >Security</div>
           <div className="serviceDiv" >Travel Serivces</div>

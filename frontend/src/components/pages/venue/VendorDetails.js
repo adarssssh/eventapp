@@ -6,7 +6,7 @@ import Homepage from '../landing/Homepage';
 import Services from './Services';
 import NavCompo from '../../Navbar/Nav';
 import NavGeneral from '../../Navbar/NavGeneral';
-import styles from './venue.css'
+import styles from '../../../styles/venue.css'
 import Footer from '../landing/Footer';
 
 const VendorDetails = () => {

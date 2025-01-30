@@ -1,3 +1,8 @@
+
+
+
+
+
 .maindivVenue{
     font-family: 'Poppins',sans-serif !important;
     position: relative;
@@ -72,7 +77,7 @@
     align-items: center;
     justify-content: center;
     position: sticky; /* Makes the search div sticky */
-    top: calc(var(--nav-height) + 60px); /* Ensures it sticks below the serviceContainer */
+    top: calc(var(--nav-height) + 40px); /* Ensures it sticks below the serviceContainer */
     z-index: 9; /* Ensures it's above other content but below the serviceContainer */
     padding: 15px 0; /* Adds some padding */
     width: 100%; /* Ensures it spans across the full width */

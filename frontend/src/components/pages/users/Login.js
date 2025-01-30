@@ -1,13 +1,21 @@
 import React from 'react'
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState, } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../../../styles/Login.module.css';
+import file from '../../../assests/logo/file.png';
 
 function Login() {
   const [loginIdentifier, setLoginIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();
+
+  
+
+  
 
   // Handle input changes
   const handleLoginIdentifierChange = (event) => setLoginIdentifier(event.target.value);
@@ -16,6 +24,8 @@ function Login() {
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+  
 
     // Clear previous messages
     setError('');
@@ -39,10 +49,10 @@ function Login() {
   return  (
     <div className={styles.container}>
     <div class = {styles.logindiv} >
-      Welcome to HappenDo
+      <img src={file} alt="Logo" className={styles.navbar_logo} fetchPriority="high" loading="eager" />
       </div>
       <div class = {styles.loginmain}>
-      <h2>Login</h2>
+        <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
@@ -63,11 +73,22 @@ function Login() {
           />
         </div>
         <button type="submit">Login</button>
+        <button onClick={()=>{navigate("/register")}}>Register</button>
+        <div className={styles.socials}>
+          <p>Or login with</p>
+          <div className={styles.socialButtons}>
+            
+            <button className={styles.socialButton}>
+              <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" />
+              <span>Google</span>
+            </button>
+            </div>
+          </div>
+        
       </form>
       {message && <p>{message}</p>}
       {error && <p>{error}</p>}
       </div>
-
       </div>
     
   );
